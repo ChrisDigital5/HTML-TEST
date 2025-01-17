@@ -1,0 +1,647 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JavaScript Fundamentals - Lessons | MUDLE JS</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-javascript.min.js"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-tomorrow.min.css" rel="stylesheet">
+    <script src="js/components.js" defer></script>
+    <script src="js/main.js" defer></script>
+    <script src="js/courses.js" defer></script>
+    <style>
+        .lesson-content pre {
+            border-radius: 0.5rem;
+            margin: 1rem 0;
+        }
+    </style>
+</head>
+<body class="bg-gray-100">
+    <div id="header"></div>
+
+    <main class="container mx-auto px-4 py-8">
+        <div class="grid md:grid-cols-3 gap-8">
+            <!-- Sidebar -->
+            <div class="bg-white rounded-lg shadow-md p-6">
+                <h2 class="text-2xl font-bold mb-4 text-blue-600">JavaScript Fundamentals</h2>
+                <ul id="lesson-list" class="space-y-2">
+                    <li>
+                        <button data-lesson="1" class="lesson-nav w-full text-left py-2 px-4 hover:bg-blue-50 rounded transition">
+                            1. Variables and Data Types
+                        </button>
+                    </li>
+                    <li>
+                        <button data-lesson="2" class="lesson-nav w-full text-left py-2 px-4 hover:bg-blue-50 rounded transition">
+                            2. Functions and Scope
+                        </button>
+                    </li>
+                    <li>
+                        <button data-lesson="3" class="lesson-nav w-full text-left py-2 px-4 hover:bg-blue-50 rounded transition">
+                            3. Conditional Statements
+                        </button>
+                    </li>
+                    <li>
+                        <button data-lesson="4" class="lesson-nav w-full text-left py-2 px-4 hover:bg-blue-50 rounded transition">
+                            4. Loops and Iterations
+                        </button>
+                    </li>
+                    <li>
+                        <button data-lesson="5" class="lesson-nav w-full text-left py-2 px-4 hover:bg-blue-50 rounded transition">
+                            5. Basic DOM Manipulation
+                        </button>
+                    </li>
+                </ul>
+            </div>
+
+            <!-- Main Content -->
+            <div class="md:col-span-2 bg-white rounded-lg shadow-md p-8 lesson-content">
+                <div id="lesson-content">
+                    <h1 id="lesson-title" class="text-3xl font-bold mb-6 text-blue-600">Variables and Data Types</h1>
+                    
+                    <div class="mb-6">
+                        <h2 class="text-xl font-semibold mb-4">Learning Objectives</h2>
+                        <ul class="list-disc list-inside text-gray-700 space-y-2">
+                            <li>Understand variable declaration and initialization</li>
+                            <li>Learn about primitive and complex data types</li>
+                            <li>Practice type conversion and type checking</li>
+                        </ul>
+                    </div>
+
+                    <div class="bg-blue-50 p-4 rounded-lg mb-4">
+                        <h3 class="text-lg font-semibold mb-3">Variables: The Containers of Programming</h3>
+                        <p class="text-gray-700">
+                            Variables are fundamental to programming. They act as containers for storing data values, 
+                            allowing you to store, retrieve, and manipulate information throughout your code.
+                        </p>
+                    </div>
+                    <div class="bg-blue-50 p-4 rounded-lg">
+                        <h3 class="text-lg font-semibold mb-3">Variable Declaration Methods</h3>
+                        <ul class="list-disc list-inside text-gray-700 space-y-2">
+                            <li><strong>var:</strong> Function-scoped, can be re-declared and updated</li>
+                            <li><strong>let:</strong> Block-scoped, can be updated but not re-declared</li>
+                            <li><strong>const:</strong> Block-scoped, cannot be updated or re-declared</li>
+                        </ul>
+                    </div>
+
+                    <div class="lesson-code mb-6">
+                        <h3 class="text-lg font-semibold mb-3">Code Example</h3>
+                        <pre><code class="language-javascript">
+// Variable Declaration
+var oldSchoolVar = "I can be re-declared";
+let modernLet = "Block-scoped variable";
+const unchangeableConst = "Cannot be reassigned";
+
+// Primitive Data Types
+let stringType = "Hello, World!";     // String
+let numberType = 42;                  // Number
+let booleanType = true;               // Boolean
+let undefinedType;                    // Undefined
+let nullType = null;                  // Null
+
+// Complex Data Types
+let arrayType = [1, 2, 3, 4, 5];      // Array
+let objectType = {                    // Object
+    name: "John",
+    age: 30
+};
+
+// Type Checking
+console.log(typeof stringType);       // "string"
+console.log(typeof numberType);       // "number"
+console.log(Array.isArray(arrayType)); // true
+                        </code></pre>
+                    </div>
+
+                    <div class="practice-exercise bg-green-50 p-4 rounded-lg">
+                        <h3 class="text-lg font-semibold mb-3">Practice Exercise</h3>
+                        <p class="mb-4">
+                            Create variables to represent a person's profile. Include their name, age, 
+                            hobbies (as an array), and a method to introduce themselves.
+                        </p>
+                        <textarea id="code-exercise" class="w-full h-32 p-2 border rounded" placeholder="Write your JavaScript code here..."></textarea>
+                        <button id="run-code" class="mt-2 bg-green-500 text-white px-4 py-2 rounded hover:bg-green-600">
+                            Run Code
+                        </button>
+                        <pre id="exercise-output" class="mt-4 bg-gray-100 p-2 rounded"></pre>
+                    </div>
+
+                    <div class="mt-6 bg-gray-100 p-4 rounded-lg">
+                        <h4 class="text-lg font-semibold mb-3">Additional Resources</h4>
+                        <ul class="list-disc list-inside">
+                            <li><a href="https://developer.mozilla.org/en-US/docs/Learn/JavaScript/First_steps/Variables" target="_blank" class="text-blue-600 hover:underline">MDN Web Docs: Variables</a></li>
+                            <li><a href="https://javascript.info/variables" target="_blank" class="text-blue-600 hover:underline">JavaScript.info: Variables</a></li>
+                        </ul>
+                    </div>
+
+                    <div class="lesson-navigation mt-8 flex justify-between">
+                        <button id="prev-lesson" class="bg-gray-200 text-gray-700 px-4 py-2 rounded hover:bg-gray-300">
+                            Previous Lesson
+                        </button>
+                        <button id="next-lesson" class="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600">
+                            Next Lesson
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <div id="footer"></div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const lessonNavButtons = document.querySelectorAll('.lesson-nav');
+            const runCodeButton = document.getElementById('run-code');
+            const codeExercise = document.getElementById('code-exercise');
+            const exerciseOutput = document.getElementById('exercise-output');
+            const prevLessonBtn = document.getElementById('prev-lesson');
+            const nextLessonBtn = document.getElementById('next-lesson');
+
+            let currentLesson = 1;
+
+            // Lesson Navigation
+            lessonNavButtons.forEach(button => {
+                button.addEventListener('click', () => {
+                    const lessonNumber = button.getAttribute('data-lesson');
+                    loadLesson(parseInt(lessonNumber));
+                });
+            });
+
+            // Code Exercise
+            runCodeButton.addEventListener('click', () => {
+                try {
+                    const userCode = codeExercise.value;
+                    const originalConsoleLog = console.log;
+                    const logs = [];
+
+                    console.log = function(...args) {
+                        logs.push(args.map(String).join(' '));
+                    };
+
+                    eval(userCode);
+
+                    console.log = originalConsoleLog;
+                    exerciseOutput.textContent = logs.join('\n');
+                } catch (error) {
+                    exerciseOutput.textContent = `Error: ${error.message}`;
+                }
+            });
+
+            // Lesson Navigation Buttons
+            prevLessonBtn.addEventListener('click', () => {
+                if (currentLesson > 1) {
+                    loadLesson(currentLesson - 1);
+                }
+            });
+
+            nextLessonBtn.addEventListener('click', () => {
+                if (currentLesson < 5) {
+                    loadLesson(currentLesson + 1);
+                }
+            });
+
+            function loadLesson(lessonNumber) {
+                const lessons = {
+                    1: {
+                        title: "Variables and Data Types",
+                        objectives: [
+                            "Understand variable declaration and initialization",
+                            "Learn about primitive and complex data types",
+                            "Practice type conversion and type checking"
+                        ],
+                        theory: `
+                            <div class="bg-blue-50 p-4 rounded-lg mb-4">
+                                <h3 class="text-lg font-semibold mb-3">Variables: The Containers of Programming</h3>
+                                <p class="text-gray-700">
+                                    Variables are fundamental to programming. They act as containers for storing data values, 
+                                    allowing you to store, retrieve, and manipulate information throughout your code.
+                                </p>
+                            </div>
+                            <div class="bg-blue-50 p-4 rounded-lg">
+                                <h3 class="text-lg font-semibold mb-3">Variable Declaration Methods</h3>
+                                <ul class="list-disc list-inside text-gray-700 space-y-2">
+                                    <li><strong>var:</strong> Function-scoped, can be re-declared and updated</li>
+                                    <li><strong>let:</strong> Block-scoped, can be updated but not re-declared</li>
+                                    <li><strong>const:</strong> Block-scoped, cannot be updated or re-declared</li>
+                                </ul>
+                            </div>
+                        `,
+                        codeExample: `
+                            <pre><code class="language-javascript">
+// Variable Declaration
+var oldSchoolVar = "I can be re-declared";
+let modernLet = "Block-scoped variable";
+const unchangeableConst = "Cannot be reassigned";
+
+// Primitive Data Types
+let stringType = "Hello, World!";     // String
+let numberType = 42;                  // Number
+let booleanType = true;               // Boolean
+let undefinedType;                    // Undefined
+let nullType = null;                  // Null
+
+// Complex Data Types
+let arrayType = [1, 2, 3, 4, 5];      // Array
+let objectType = {                    // Object
+    name: "John",
+    age: 30
+};
+
+// Type Checking
+console.log(typeof stringType);       // "string"
+console.log(typeof numberType);       // "number"
+console.log(Array.isArray(arrayType)); // true
+                            </code></pre>
+                        `,
+                        practiceExercise: `
+                            <p class="mb-4">
+                                Create variables to represent a person's profile. Include their name, age, 
+                                hobbies (as an array), and a method to introduce themselves.
+                            </p>
+                        `,
+                        additionalResources: [
+                            {
+                                title: "MDN Web Docs: Variables",
+                                link: "https://developer.mozilla.org/en-US/docs/Learn/JavaScript/First_steps/Variables"
+                            },
+                            {
+                                title: "JavaScript.info: Variables",
+                                link: "https://javascript.info/variables"
+                            }
+                        ]
+                    },
+                    2: {
+                        title: "Functions and Scope",
+                        objectives: [
+                            "Define and call functions",
+                            "Understand function parameters and return values",
+                            "Learn about function scope and closures"
+                        ],
+                        theory: `
+                            <div class="bg-purple-50 p-4 rounded-lg mb-4">
+                                <h3 class="text-lg font-semibold mb-3">Functions: Reusable Code Blocks</h3>
+                                <p class="text-gray-700">
+                                    Functions are like recipes in programming. They allow you to package a set of 
+                                    instructions that can be executed multiple times with different inputs.
+                                </p>
+                            </div>
+                            <div class="bg-purple-50 p-4 rounded-lg">
+                                <h3 class="text-lg font-semibold mb-3">Function Types</h3>
+                                <ul class="list-disc list-inside text-gray-700 space-y-2">
+                                    <li><strong>Function Declaration:</strong> Hoisted and can be called before definition</li>
+                                    <li><strong>Function Expression:</strong> Assigned to a variable, not hoisted</li>
+                                    <li><strong>Arrow Functions:</strong> Concise syntax, lexical 'this' binding</li>
+                                </ul>
+                            </div>
+                        `,
+                        codeExample: `
+                            <pre><code class="language-javascript">
+// Function Declaration
+function greet(name) {
+    return \`Hello, \${name}!\`;
+}
+
+// Function Expression
+const multiply = function(a, b) {
+    return a * b;
+};
+
+// Arrow Function
+const square = x => x * x;
+
+// Function with Default Parameters
+function power(base, exponent = 2) {
+    return Math.pow(base, exponent);
+}
+
+// Closure Example
+function createCounter() {
+    let count = 0;
+    return function() {
+        return ++count;
+    };
+}
+
+const counter = createCounter();
+console.log(counter()); // 1
+console.log(counter()); // 2
+                            </code></pre>
+                        `,
+                        practiceExercise: `
+                            <p class="mb-4">
+                                Create a function that calculates the average of an array of numbers. 
+                                Then, create a closure that generates unique IDs.
+                            </p>
+                        `,
+                        additionalResources: [
+                            {
+                                title: "JavaScript.info: Functions",
+                                link: "https://javascript.info/function-basics"
+                            },
+                            {
+                                title: "MDN Web Docs: Closures",
+                                link: "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Closures"
+                            }
+                        ]
+                    },
+                    3: {
+                        title: "Conditional Statements",
+                        objectives: [
+                            "Use if-else statements for decision making",
+                            "Implement switch statements",
+                            "Understand truthy and falsy values"
+                        ],
+                        theory: `
+                            <div class="bg-green-50 p-4 rounded-lg mb-4">
+                                <h3 class="text-lg font-semibold mb-3">Conditional Logic: Making Decisions in Code</h3>
+                                <p class="text-gray-700">
+                                    Conditional statements allow your code to make decisions based on different conditions, 
+                                    creating dynamic and responsive programs.
+                                </p>
+                            </div>
+                            <div class="bg-green-50 p-4 rounded-lg">
+                                <h3 class="text-lg font-semibold mb-3">Comparison and Logical Operators</h3>
+                                <ul class="list-disc list-inside text-gray-700 space-y-2">
+                                    <li><strong>==</strong> Loose equality (type coercion)</li>
+                                    <li><strong>===</strong> Strict equality (no type coercion)</li>
+                                    <li><strong>&&</strong> Logical AND</li>
+                                    <li><strong>||</strong> Logical OR</li>
+                                    <li><strong>!</strong> Logical NOT</li>
+                                </ul>
+                            </div>
+                        `,
+                        codeExample: `
+                            <pre><code class="language-javascript">
+// If-Else Statements
+function checkAge(age) {
+    if (age < 13) {
+        return "Child";
+    } else if (age < 20) {
+        return "Teenager";
+    } else {
+        return "Adult";
+    }
+}
+
+// Ternary Operator
+const canVote = age => age >= 18 ? "Can vote" : "Cannot vote";
+
+// Switch Statement
+function getDayName(dayNumber) {
+    switch(dayNumber) {
+        case 1: return "Monday";
+        case 2: return "Tuesday";
+        // ... other days
+        default: return "Invalid day";
+    }
+}
+
+// Truthy and Falsy
+function checkTruthiness(value) {
+    return value ? "Truthy" : "Falsy";
+}
+
+console.log(checkTruthiness(0));        // "Falsy"
+console.log(checkTruthiness("hello"));  // "Truthy"
+console.log(checkTruthiness(null));     // "Falsy"
+                            </code></pre>
+                        `,
+                        practiceExercise: `
+                            <p class="mb-4">
+                                Create a function that determines a student's grade (A, B, C, D, F) 
+                                based on their numerical score. Use both if-else and switch statements.
+                            </p>
+                        `,
+                        additionalResources: [
+                            {
+                                title: "MDN Web Docs: Conditionals",
+                                link: "https://developer.mozilla.org/en-US/docs/Learn/JavaScript/Building_blocks/conditionals"
+                            },
+                            {
+                                title: "JavaScript.info: Comparisons",
+                                link: "https://javascript.info/comparison"
+                            }
+                        ]
+                    },
+                    4: {
+                        title: "Loops and Iterations",
+                        objectives: [
+                            "Use for, while, and do-while loops",
+                            "Iterate over arrays with various methods",
+                            "Understand loop control statements"
+                        ],
+                        theory: `
+                            <div class="bg-yellow-50 p-4 rounded-lg mb-4">
+                                <h3 class="text-lg font-semibold mb-3">Loops: Automating Repetitive Tasks</h3>
+                                <p class="text-gray-700">
+                                    Loops allow you to execute a block of code multiple times, making your programs 
+                                    more efficient and reducing code repetition.
+                                </p>
+                            </div>
+                            <div class="bg-yellow-50 p-4 rounded-lg">
+                                <h3 class="text-lg font-semibold mb-3">Loop Types</h3>
+                                <ul class="list-disc list-inside text-gray-700 space-y-2">
+                                    <li><strong>for:</strong> Traditional loop with initialization, condition, and increment</li>
+                                    <li><strong>while:</strong> Executes while a condition is true</li>
+                                    <li><strong>do-while:</strong> Always executes at least once</li>
+                                    <li><strong>for...of:</strong> Iterates over iterable objects</li>
+                                    <li><strong>for...in:</strong> Iterates over object properties</li>
+                                </ul>
+                            </div>
+                        `,
+                        codeExample: `
+                            <pre><code class="language-javascript">
+// Traditional For Loop
+for (let i = 0; i < 5; i++) {
+    console.log(i);  // 0, 1, 2, 3, 4
+}
+
+// While Loop
+let count = 0;
+while (count < 3) {
+    console.log(count);
+    count++;
+}
+
+// Do-While Loop
+let x = 0;
+do {
+    console.log(x);
+    x++;
+} while (x < 3);
+
+// For...of (Array Iteration)
+const fruits = ['apple', 'banana', 'cherry'];
+for (let fruit of fruits) {
+    console.log(fruit);
+}
+
+// Array Methods
+fruits.forEach(fruit => console.log(fruit));
+const doubled = fruits.map(fruit => fruit.length);
+
+// Break and Continue
+for (let i = 0; i < 10; i++) {
+    if (i === 3) continue;  // Skip 3
+    if (i === 7) break;     // Stop at 7
+    console.log(i);
+}
+                            </code></pre>
+                        `,
+                        practiceExercise: `
+                            <p class="mb-4">
+                                Create a function that finds the sum of all even numbers in an array 
+                                using different loop types. Implement both a traditional for loop 
+                                and an array method approach.
+                            </p>
+                        `,
+                        additionalResources: [
+                            {
+                                title: "MDN Web Docs: Loops",
+                                link: "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Loops_and_iteration"
+                            },
+                            {
+                                title: "JavaScript.info: Loops",
+                                link: "https://javascript.info/while-for"
+                            }
+                        ]
+                    },
+                    5: {
+                        title: "Basic DOM Manipulation",
+                        objectives: [
+                            "Select and modify HTML elements",
+                            "Create and remove DOM elements",
+                            "Handle events and user interactions"
+                        ],
+                        theory: `
+                            <div class="bg-indigo-50 p-4 rounded-lg mb-4">
+                                <h3 class="text-lg font-semibold mb-3">DOM: Bringing Interactivity to Web Pages</h3>
+                                <p class="text-gray-700">
+                                    The Document Object Model (DOM) allows JavaScript to interact with and modify 
+                                    HTML and CSS, creating dynamic and responsive web experiences.
+                                </p>
+                            </div>
+                            <div class="bg-indigo-50 p-4 rounded-lg">
+                                <h3 class="text-lg font-semibold mb-3">DOM Manipulation Techniques</h3>
+                                <ul class="list-disc list-inside text-gray-700 space-y-2">
+                                    <li><strong>querySelector/querySelectorAll:</strong> Select elements</li>
+                                    <li><strong>createElement:</strong> Create new elements</li>
+                                    <li><strong>addEventListener:</strong> Handle user interactions</li>
+                                    <li><strong>innerHTML/textContent:</strong> Modify element content</li>
+                                    <li><strong>classList:</strong> Manipulate CSS classes</li>
+                                </ul>
+                            </div>
+                        `,
+                        codeExample: `
+                            <pre><code class="language-javascript">
+// Selecting Elements
+const title = document.querySelector('h1');
+const paragraphs = document.querySelectorAll('p');
+
+// Creating Elements
+const newDiv = document.createElement('div');
+newDiv.textContent = 'Dynamically created div';
+document.body.appendChild(newDiv);
+
+// Modifying Elements
+title.style.color = 'blue';
+title.classList.add('highlight');
+
+// Event Handling
+const button = document.getElementById('myButton');
+button.addEventListener('click', () => {
+    alert('Button clicked!');
+});
+
+// Form Interaction
+const form = document.querySelector('form');
+form.addEventListener('submit', (event) => {
+    event.preventDefault();
+    const inputValue = document.getElementById('username').value;
+    console.log(\`Submitted: \${inputValue}\`);
+});
+
+// Dynamic List Creation
+function createList(items) {
+    const ul = document.createElement('ul');
+    items.forEach(item => {
+        const li = document.createElement('li');
+        li.textContent = item;
+        ul.appendChild(li);
+    });
+    document.body.appendChild(ul);
+}
+                            </code></pre>
+                        `,
+                        practiceExercise: `
+                            <p class="mb-4">
+                                Create a simple todo list application where users can:
+                                1. Add new todo items
+                                2. Mark items as complete
+                                3. Delete items from the list
+                            </p>
+                        `,
+                        additionalResources: [
+                            {
+                                title: "MDN Web Docs: DOM",
+                                link: "https://developer.mozilla.org/en-US/docs/Web/API/Document_Object_Model"
+                            },
+                            {
+                                title: "JavaScript.info: DOM Manipulation",
+                                link: "https://javascript.info/document"
+                            }
+                        ]
+                    }
+                };
+
+                const lesson = lessons[lessonNumber];
+                document.getElementById('lesson-title').textContent = lesson.title;
+                
+                // Update learning objectives
+                const objectivesList = document.querySelector('.lesson-content ul');
+                objectivesList.innerHTML = lesson.objectives
+                    .map(obj => `<li>${obj}</li>`)
+                    .join('');
+                
+                // Update theory section
+                const theorySection = document.querySelector('.bg-gray-50');
+                theorySection.innerHTML = lesson.theory;
+                
+                // Update code example
+                const codeExampleSection = document.querySelector('.lesson-code pre code');
+                codeExampleSection.textContent = lesson.codeExample.trim();
+                Prism.highlightElement(codeExampleSection);
+                
+                // Update practice exercise
+                const practiceExercise = document.querySelector('.practice-exercise p');
+                practiceExercise.textContent = lesson.practiceExercise;
+                
+                // Add additional resources
+                const resourcesContainer = document.createElement('div');
+                resourcesContainer.className = 'mt-6 bg-gray-100 p-4 rounded-lg';
+                resourcesContainer.innerHTML = `
+                    <h4 class="text-lg font-semibold mb-3">Additional Resources</h4>
+                    <ul class="list-disc list-inside">
+                        ${lesson.additionalResources.map(resource => 
+                            `<li><a href="${resource.link}" target="_blank" class="text-blue-600 hover:underline">${resource.title}</a></li>`
+                        ).join('')}
+                    </ul>
+                `;
+                
+                // Append resources after practice exercise
+                document.querySelector('.practice-exercise').after(resourcesContainer);
+
+                currentLesson = lessonNumber;
+                updateLessonNavButtons();
+
+                // Track lesson progress
+                const courseManager = new CourseManager();
+                courseManager.updateCourseProgress('javascript-fundamentals', lessonNumber - 1);
+            }
+        });
+    </script>
+</body>
+</html>

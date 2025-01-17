@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Learning Progress Dashboard | MUDLE JS</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="js/components.js" defer></script>
+    <script src="js/main.js" defer></script>
+    <script src="js/courses.js" defer></script>
+</head>
+<body class="bg-gray-100">
+    <div id="header"></div>
+
+    <main class="container mx-auto px-4 py-8">
+        <h1 class="text-4xl font-bold mb-8 text-center text-blue-600">Your Learning Dashboard</h1>
+
+        <div class="grid md:grid-cols-3 gap-6">
+            <!-- Profile Section -->
+            <div class="bg-white rounded-lg shadow-md p-6">
+                <div class="text-center">
+                    <img id="profile-avatar" src="https://ui-avatars.com/api/?name=Student&background=0D8ABC&color=fff" 
+                         class="w-24 h-24 rounded-full mx-auto mb-4" alt="Profile Avatar">
+                    <h2 id="profile-name" class="text-2xl font-semibold">Student Name</h2>
+                    <p id="profile-email" class="text-gray-600">student@example.com</p>
+                </div>
+
+                <div class="mt-6">
+                    <h3 class="text-lg font-semibold mb-3">Account Details</h3>
+                    <ul class="space-y-2">
+                        <li>
+                            <strong>Joined:</strong> 
+                            <span id="account-created">January 17, 2025</span>
+                        </li>
+                        <li>
+                            <strong>Total Learning Time:</strong> 
+                            <span id="total-learning-time">0 hours</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Course Progress -->
+            <div class="bg-white rounded-lg shadow-md p-6 md:col-span-2">
+                <h2 class="text-2xl font-semibold mb-6">Course Progress</h2>
+                
+                <div class="grid md:grid-cols-3 gap-4" id="course-progress-cards">
+                    <!-- JavaScript Fundamentals -->
+                    <div class="bg-blue-50 p-4 rounded-lg">
+                        <h3 class="text-lg font-semibold mb-3 text-blue-600">JavaScript Fundamentals</h3>
+                        <div class="w-full bg-gray-200 rounded-full h-2.5 mb-3">
+                            <div id="fundamentals-progress" class="bg-blue-600 h-2.5 rounded-full" style="width: 0%"></div>
+                        </div>
+                        <p class="text-sm text-gray-600">
+                            <span id="fundamentals-completed">0</span>/5 Lessons Completed
+                        </p>
+                    </div>
+
+                    <!-- Advanced JavaScript -->
+                    <div class="bg-purple-50 p-4 rounded-lg">
+                        <h3 class="text-lg font-semibold mb-3 text-purple-600">Advanced Techniques</h3>
+                        <div class="w-full bg-gray-200 rounded-full h-2.5 mb-3">
+                            <div id="advanced-progress" class="bg-purple-600 h-2.5 rounded-full" style="width: 0%"></div>
+                        </div>
+                        <p class="text-sm text-gray-600">
+                            <span id="advanced-completed">0</span>/5 Lessons Completed
+                        </p>
+                    </div>
+
+                    <!-- Real-World Projects -->
+                    <div class="bg-red-50 p-4 rounded-lg">
+                        <h3 class="text-lg font-semibold mb-3 text-red-600">Real-World Projects</h3>
+                        <div class="w-full bg-gray-200 rounded-full h-2.5 mb-3">
+                            <div id="projects-progress" class="bg-red-600 h-2.5 rounded-full" style="width: 0%"></div>
+                        </div>
+                        <p class="text-sm text-gray-600">
+                            <span id="projects-completed">0</span>/5 Lessons Completed
+                        </p>
+                    </div>
+                </div>
+
+                <div class="mt-6">
+                    <h3 class="text-lg font-semibold mb-4">Overall Progress</h3>
+                    <canvas id="progress-chart" class="w-full h-48"></canvas>
+                </div>
+            </div>
+
+            <!-- Achievements -->
+            <div class="bg-white rounded-lg shadow-md p-6 md:col-span-3">
+                <h2 class="text-2xl font-semibold mb-6">Achievements</h2>
+                
+                <div class="grid md:grid-cols-4 gap-4" id="achievements-container">
+                    <div class="bg-green-50 p-4 rounded-lg text-center">
+                        <svg class="w-16 h-16 mx-auto mb-3 text-green-600" fill="currentColor" viewBox="0 0 20 20">
+                            <path d="M10 2l2.4 6.4H19l-5.2 4 2 6.4-5.2-4-5.2 4 2-6.4L1 8.4h6.6z"/>
+                        </svg>
+                        <h3 class="font-semibold">First Lesson</h3>
+                        <p class="text-sm text-gray-600">Completed your first lesson</p>
+                    </div>
+                    
+                    <div class="bg-yellow-50 p-4 rounded-lg text-center opacity-50">
+                        <svg class="w-16 h-16 mx-auto mb-3 text-yellow-600" fill="currentColor" viewBox="0 0 20 20">
+                            <path d="M10 2l2.4 6.4H19l-5.2 4 2 6.4-5.2-4-5.2 4 2-6.4L1 8.4h6.6z"/>
+                        </svg>
+                        <h3 class="font-semibold">Intermediate Level</h3>
+                        <p class="text-sm text-gray-600">Complete Advanced Course</p>
+                    </div>
+
+                    <div class="bg-indigo-50 p-4 rounded-lg text-center opacity-50">
+                        <svg class="w-16 h-16 mx-auto mb-3 text-indigo-600" fill="currentColor" viewBox="0 0 20 20">
+                            <path d="M10 2l2.4 6.4H19l-5.2 4 2 6.4-5.2-4-5.2 4 2-6.4L1 8.4h6.6z"/>
+                        </svg>
+                        <h3 class="font-semibold">Project Master</h3>
+                        <p class="text-sm text-gray-600">Complete Real-World Projects</p>
+                    </div>
+
+                    <div class="bg-pink-50 p-4 rounded-lg text-center opacity-50">
+                        <svg class="w-16 h-16 mx-auto mb-3 text-pink-600" fill="currentColor" viewBox="0 0 20 20">
+                            <path d="M10 2l2.4 6.4H19l-5.2 4 2 6.4-5.2-4-5.2 4 2-6.4L1 8.4h6.6z"/>
+                        </svg>
+                        <h3 class="font-semibold">JavaScript Expert</h3>
+                        <p class="text-sm text-gray-600">Complete all courses</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <div id="footer"></div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const courseManager = new CourseManager();
+            const enrollments = courseManager.getUserEnrollments();
+
+            function updateProgressDashboard() {
+                // Course Progress Tracking
+                const courses = [
+                    { 
+                        id: 'javascript-fundamentals', 
+                        progressElement: document.getElementById('fundamentals-progress'),
+                        completedElement: document.getElementById('fundamentals-completed')
+                    },
+                    { 
+                        id: 'advanced-javascript', 
+                        progressElement: document.getElementById('advanced-progress'),
+                        completedElement: document.getElementById('advanced-completed')
+                    },
+                    { 
+                        id: 'javascript-projects', 
+                        progressElement: document.getElementById('projects-progress'),
+                        completedElement: document.getElementById('projects-completed')
+                    }
+                ];
+
+                let totalLessonsCompleted = 0;
+                const totalLessons = 15; // 5 lessons per course
+
+                courses.forEach(course => {
+                    const courseEnrollment = enrollments.find(e => e.courseId === course.id);
+                    
+                    if (courseEnrollment) {
+                        const completedLessons = courseEnrollment.progress.completedLessons;
+                        const progressPercentage = (completedLessons / 5) * 100;
+
+                        course.progressElement.style.width = `${progressPercentage}%`;
+                        course.completedElement.textContent = completedLessons;
+
+                        totalLessonsCompleted += completedLessons;
+                    }
+                });
+
+                // Overall Progress Chart
+                const ctx = document.getElementById('progress-chart').getContext('2d');
+                new Chart(ctx, {
+                    type: 'bar',
+                    data: {
+                        labels: ['Fundamentals', 'Advanced', 'Projects'],
+                        datasets: [{
+                            label: 'Lessons Completed',
+                            data: courses.map(course => {
+                                const courseEnrollment = enrollments.find(e => e.courseId === course.id);
+                                return courseEnrollment ? courseEnrollment.progress.completedLessons : 0;
+                            }),
+                            backgroundColor: ['#3B82F6', '#8B5CF6', '#EF4444'],
+                            borderWidth: 1
+                        }]
+                    },
+                    options: {
+                        responsive: true,
+                        scales: {
+                            y: {
+                                beginAtZero: true,
+                                max: 5
+                            }
+                        }
+                    }
+                });
+
+                // Update Total Learning Time (simulated)
+                const totalLearningTime = (totalLessonsCompleted * 30); // 30 mins per lesson
+                document.getElementById('total-learning-time').textContent = `${totalLearningTime} minutes`;
+
+                // Update Achievements
+                updateAchievements(totalLessonsCompleted);
+            }
+
+            function updateAchievements(totalLessonsCompleted) {
+                const achievementsContainer = document.getElementById('achievements-container');
+                const achievements = achievementsContainer.querySelectorAll('div');
+
+                // First Lesson Achievement
+                if (totalLessonsCompleted > 0) {
+                    achievements[0].classList.remove('opacity-50');
+                }
+
+                // Intermediate Level Achievement
+                if (totalLessonsCompleted >= 5) {
+                    achievements[1].classList.remove('opacity-50');
+                }
+
+                // Project Master Achievement
+                if (totalLessonsCompleted >= 10) {
+                    achievements[2].classList.remove('opacity-50');
+                }
+
+                // JavaScript Expert Achievement
+                if (totalLessonsCompleted >= 15) {
+                    achievements[3].classList.remove('opacity-50');
+                }
+            }
+
+            // Profile Personalization
+            function initializeProfile() {
+                const lastEnrollment = enrollments[enrollments.length - 1];
+                if (lastEnrollment) {
+                    document.getElementById('profile-name').textContent = lastEnrollment.studentName;
+                    document.getElementById('profile-email').textContent = lastEnrollment.studentEmail;
+                    document.getElementById('profile-avatar').src = 
+                        `https://ui-avatars.com/api/?name=${encodeURIComponent(lastEnrollment.studentName)}&background=0D8ABC&color=fff`;
+                    document.getElementById('account-created').textContent = 
+                        new Date(lastEnrollment.enrollmentDate).toLocaleDateString();
+                }
+            }
+
+            initializeProfile();
+            updateProgressDashboard();
+        });
+    </script>
+</body>
+</html>

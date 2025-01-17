@@ -5,43 +5,158 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Courses - MUDLE JS</title>
     <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script src="js/components.js" defer></script>
     <script src="js/main.js" defer></script>
+    <script src="js/courses.js" defer></script>
 </head>
 <body class="bg-gray-100">
     <div id="header"></div>
 
     <main class="container mx-auto px-4 py-8">
-        <h1 class="text-4xl font-bold mb-8">Available Courses</h1>
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-            <div class="bg-white rounded-lg shadow-md overflow-hidden">
-                <img src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?q=80&w=400&h=300&fit=crop" alt="JavaScript Basics" class="w-full">
+        <div class="text-center mb-12">
+            <h1 class="text-4xl md:text-5xl font-bold mb-4">JavaScript Learning Paths</h1>
+            <p class="text-xl text-gray-600 max-w-3xl mx-auto">
+                Choose your learning journey. From beginner to advanced, our courses are designed to transform you into a JavaScript expert.
+            </p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <!-- Beginner Course -->
+            <div class="bg-white rounded-lg shadow-lg overflow-hidden transform transition duration-300 hover:scale-105">
+                <div class="relative">
+                    <img src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?q=80&w=400&h=300&fit=crop" alt="JavaScript Basics" class="w-full h-48 object-cover">
+                    <div class="absolute top-0 right-0 bg-blue-500 text-white px-4 py-2 rounded-bl-lg">
+                        Beginner
+                    </div>
+                </div>
                 <div class="p-6">
-                    <h3 class="text-xl font-bold mb-2">JavaScript Basics</h3>
-                    <p class="text-gray-600 mb-4">Learn the fundamentals of JavaScript programming</p>
-                    <button class="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600">
+                    <h3 class="text-2xl font-bold mb-3">JavaScript Fundamentals</h3>
+                    <p class="text-gray-600 mb-4">
+                        Learn the core concepts of JavaScript, including variables, functions, and basic programming principles.
+                    </p>
+                    <div class="mb-4">
+                        <div class="flex items-center mb-2">
+                            <svg class="w-5 h-5 text-green-500 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z"></path>
+                            </svg>
+                            <span>10 Interactive Lessons</span>
+                        </div>
+                        <div class="flex items-center">
+                            <svg class="w-5 h-5 text-green-500 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                            </svg>
+                            <span>4 Hours Total</span>
+                        </div>
+                    </div>
+                    <a href="javascript-fundamentals.html" class="w-full bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600">
                         Start Learning
-                    </button>
+                    </a>
                 </div>
             </div>
-            <div class="bg-white rounded-lg shadow-md overflow-hidden">
-                <img src="https://images.unsplash.com/photo-1461896836934-ffe607ba8211?q=80&w=400&h=300&fit=crop" alt="Advanced JavaScript" class="w-full">
+
+            <!-- Intermediate Course -->
+            <div class="bg-white rounded-lg shadow-lg overflow-hidden transform transition duration-300 hover:scale-105">
+                <div class="relative">
+                    <img src="https://images.unsplash.com/photo-1461896836934-ffe607ba8211?q=80&w=400&h=300&fit=crop" alt="Advanced JavaScript" class="w-full h-48 object-cover">
+                    <div class="absolute top-0 right-0 bg-purple-500 text-white px-4 py-2 rounded-bl-lg">
+                        Intermediate
+                    </div>
+                </div>
                 <div class="p-6">
-                    <h3 class="text-xl font-bold mb-2">Advanced JavaScript</h3>
-                    <p class="text-gray-600 mb-4">Master advanced concepts and patterns</p>
-                    <button class="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600">
+                    <h3 class="text-2xl font-bold mb-3">Advanced JavaScript Techniques</h3>
+                    <p class="text-gray-600 mb-4">
+                        Dive deep into advanced concepts like closures, promises, async/await, and modern ES6+ features.
+                    </p>
+                    <div class="mb-4">
+                        <div class="flex items-center mb-2">
+                            <svg class="w-5 h-5 text-green-500 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z"></path>
+                            </svg>
+                            <span>15 Advanced Lessons</span>
+                        </div>
+                        <div class="flex items-center">
+                            <svg class="w-5 h-5 text-green-500 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                            </svg>
+                            <span>6 Hours Total</span>
+                        </div>
+                    </div>
+                    <a href="advanced-javascript.html" class="w-full bg-purple-500 text-white px-4 py-2 rounded hover:bg-purple-600">
                         Start Learning
-                    </button>
+                    </a>
                 </div>
             </div>
-            <div class="bg-white rounded-lg shadow-md overflow-hidden">
-                <img src="https://images.unsplash.com/photo-1522252234503-e356532cafd5?q=80&w=400&h=300&fit=crop" alt="JavaScript Projects" class="w-full">
+
+            <!-- Advanced Course -->
+            <div class="bg-white rounded-lg shadow-lg overflow-hidden transform transition duration-300 hover:scale-105">
+                <div class="relative">
+                    <img src="https://images.unsplash.com/photo-1522252234503-e356532cafd5?q=80&w=400&h=300&fit=crop" alt="JavaScript Projects" class="w-full h-48 object-cover">
+                    <div class="absolute top-0 right-0 bg-red-500 text-white px-4 py-2 rounded-bl-lg">
+                        Advanced
+                    </div>
+                </div>
                 <div class="p-6">
-                    <h3 class="text-xl font-bold mb-2">JavaScript Projects</h3>
-                    <p class="text-gray-600 mb-4">Build real-world applications</p>
-                    <button class="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600">
+                    <h3 class="text-2xl font-bold mb-3">Real-World JavaScript Projects</h3>
+                    <p class="text-gray-600 mb-4">
+                        Build complex applications using modern frameworks, state management, and professional development practices.
+                    </p>
+                    <div class="mb-4">
+                        <div class="flex items-center mb-2">
+                            <svg class="w-5 h-5 text-green-500 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z"></path>
+                            </svg>
+                            <span>20 Project-Based Lessons</span>
+                        </div>
+                        <div class="flex items-center">
+                            <svg class="w-5 h-5 text-green-500 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                            </svg>
+                            <span>10 Hours Total</span>
+                        </div>
+                    </div>
+                    <a href="javascript-projects.html" class="w-full bg-red-500 text-white px-4 py-2 rounded hover:bg-red-600">
                         Start Learning
-                    </button>
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <div class="container mx-auto px-4 py-12">
+            <div class="bg-gradient-to-r from-blue-100 to-purple-100 rounded-lg p-8 text-center">
+                <h2 class="text-3xl font-bold mb-4 text-gray-800">Your Complete JavaScript Learning Journey</h2>
+                <p class="text-xl text-gray-600 mb-6">
+                    Discover a structured path from beginner to professional developer
+                </p>
+                <a href="learning-path.html" class="inline-block bg-blue-500 text-white px-6 py-3 rounded-lg hover:bg-blue-600 transition duration-300">
+                    View Learning Path
+                </a>
+            </div>
+        </div>
+
+        <div class="mt-12 text-center">
+            <h2 class="text-3xl font-bold mb-6">Why Choose MUDLE JS?</h2>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <div class="bg-gray-100 p-6 rounded-lg">
+                    <svg class="w-12 h-12 mx-auto mb-4 text-blue-500" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"></path>
+                    </svg>
+                    <h3 class="text-xl font-semibold mb-2">Interactive Learning</h3>
+                    <p class="text-gray-600">Hands-on coding exercises and real-time feedback</p>
+                </div>
+                <div class="bg-gray-100 p-6 rounded-lg">
+                    <svg class="w-12 h-12 mx-auto mb-4 text-green-500" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H5a2 2 0 00-2 2v9a2 2 0 002 2h14a2 2 0 002-2V8a2 2 0 00-2-2h-5m-4 0V5a2 2 0 114 0v1m-4 0a2 2 0 104 0m-5 8a2 2 0 100-4 2 2 0 000 4zm0 0c1.306 0 2.417.835 2.83 2M9 14a3.001 3.001 0 00-2.83 2M15 11h3m-3 4h2"></path>
+                    </svg>
+                    <h3 class="text-xl font-semibold mb-2">Expert Instructors</h3>
+                    <p class="text-gray-600">Learn from industry professionals with real-world experience</p>
+                </div>
+                <div class="bg-gray-100 p-6 rounded-lg">
+                    <svg class="w-12 h-12 mx-auto mb-4 text-purple-500" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.768-.231-1.48-.634-2.026M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.768.231-1.48.634-2.026M14 10h2a2 2 0 002-2V6a2 2 0 00-2-2h-2a2 2 0 00-2 2v2a2 2 0 002 2zm-6 0a2 2 0 100-4 2 2 0 000 4z"></path>
+                    </svg>
+                    <h3 class="text-xl font-semibold mb-2">Community Support</h3>
+                    <p class="text-gray-600">Connect with fellow learners and get help when you need it</p>
                 </div>
             </div>
         </div>
